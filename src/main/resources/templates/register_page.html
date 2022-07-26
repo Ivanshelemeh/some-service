@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type " content="application/json; charset=UTF-8">
+    <title>Registration page</title>
+</head>
+<body>
+<h1>
+    Please enter username and password:
+    </h1>
+<form method="POST"  th:action="@{/auth/login}"  th:object="${userAccount}">
+    <div th:if="${param.error}">
+        <p class="text-danger">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+    </div>
+            <label class="col-sm-4 col-form-label">Username:</label>
+            <input type="text" name="name" th:field="*{name}" class="form-control" placeholder="Введите имя" required minlength="2" maxlength="45"/></br>
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Invalid name</span>
+            <label class="col-sm-4 col-form-label">Password:</label>
+            <input type="text" name="password" th:field="*{password}" class="form-control" placeholder="Введите пароль"/></br>
+             <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Invalid password</span>
+    <div class="text-center" >
+                <span>
+            <button type="submit" class="btn btn-primary">Submit</button>
+                    </span>
+    </div>
+</form>
+
+</body>
+</html>

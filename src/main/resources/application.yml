@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: pass
+  application:
+    name: Some service name
+
+  thymeleaf:
+    cache: false
+  jpa:
+   show-sql: true
+  hibernate:
+    ddl-auto: none
+  properties:
+    hibernate:
+      dialect: org.hibernate.dialect.PostgresSQL81Dialect
+
+    server:
+         port: 9091
+
+    flyway:
+          enable: true
+          validate-on-migrate: true
+
+
+
