@@ -17,7 +17,7 @@ spring:
       dialect: org.hibernate.dialect.PostgresSQL81Dialect
 
     server:
-         port: 9091
+         port: 8080
 
     flyway:
           enable: true
